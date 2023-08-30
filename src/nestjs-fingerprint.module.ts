@@ -5,14 +5,18 @@ import { ModuleConfigs, defaultModuleConfigs } from "./type";
 export class NestjsFingerprintModule implements NestModule {
   private static configs: ModuleConfigs;
   /**
-   * Initializes the module for the root of the application.
+   * Initializes the root module of the application.
    *
-   * @return {Promise<DynamicModule>} An object containing the configuration of the module.
+   * @param configs - The configuration options for the module. Defaults to `defaultModuleConfigs`.
+   * @returns A promise that resolves to an object containing the module configuration.
    */
   static async forRoot(
     configs: ModuleConfigs = defaultModuleConfigs
   ): Promise<DynamicModule> {
+    // Set the module configuration
     this.configs = configs;
+
+    // Return the module configuration
     return {
       global: true,
       module: NestjsFingerprintModule,

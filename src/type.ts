@@ -20,6 +20,7 @@ export type Parameters = "headers" | "userAgent" | "ipAddress";
 export interface AcceptHeader {
   accept: string;
   language: string;
+  encoding: string;
 }
 
 export interface IpAddress {
