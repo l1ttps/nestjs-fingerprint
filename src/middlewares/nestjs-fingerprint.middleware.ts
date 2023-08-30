@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware, Type, mixin } from "@nestjs/common";
 import { NextFunction, Request, Response } from "express";
-import generateFingerprint from "src/core/generateFingerprint";
+import generateFingerprint from "../core/generateFingerprint";
 import { ModuleConfigs } from "../type";
 
 export function NestjsFingerprintMiddleware(
