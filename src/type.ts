@@ -2,7 +2,6 @@ export interface ModuleConfigs {
   params?: Parameters[];
   cookieOptions?: {
     name?: string;
-    isSetCookie: boolean;
     httpOnly?: boolean;
     domain?: string;
   };
@@ -11,7 +10,6 @@ export interface ModuleConfigs {
 export const defaultModuleConfigs: ModuleConfigs = {
   params: ["ipAddress", "headers", "userAgent"],
   cookieOptions: {
-    isSetCookie: true,
     name: "fp",
     httpOnly: true,
   },

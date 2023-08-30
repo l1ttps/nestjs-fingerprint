@@ -11,16 +11,14 @@ export function NestjsFingerprintMiddleware(
     async use(req: Request, res: Response, next: NextFunction) {
       const {
         params,
-        cookieOptions: { isSetCookie, httpOnly, name, domain },
+        cookieOptions: { httpOnly, name, domain },
       } = options;
       const fp = generateFingerprint(req, params);
       req.fp = fp;
-      if (isSetCookie) {
-        res.cookie(name || DEFAULT_COOKIE_NAME, fp.id, {
-          httpOnly,
-          domain,
-        });
-      }
+      res.cookie(name || DEFAULT_COOKIE_NAME, fp.id, {
+        httpOnly,
+        domain,
+      });
       next();
     }
   }
