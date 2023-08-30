@@ -1,8 +1,16 @@
 {
   "name": "nestjs-fingerprint",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A fingerprint recognition library from http request for nestjs",
+  "main": "dist/index.js",
+  "author": "l1ttps",
+  "module": "dist/index.js",
+  "repository": "l1ttps/nestjs-fingerprint",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "build": "nest build",
     "build:dev": "nest build && cd example && npm link nestjs-fingerprint && npm i",
@@ -19,8 +27,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "^5.2.2"
   },
