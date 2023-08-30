@@ -1,7 +1,7 @@
 import { DynamicModule, MiddlewareConsumer, NestModule } from "@nestjs/common";
 import { NestjsFingerprintMiddleware } from "./middlewares/nestjs-fingerprint.middleware";
-import { ModuleConfigs, defaultModuleConfigs } from "./module.config";
 import { NestjsFingerprintService } from "./nestjs-fingerprint.service";
+import { ModuleConfigs, defaultModuleConfigs } from "./type";
 
 export class NestjsFingerprintModule implements NestModule {
   private static configs: ModuleConfigs;

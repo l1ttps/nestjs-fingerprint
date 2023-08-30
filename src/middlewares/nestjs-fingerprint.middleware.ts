@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, Type, mixin } from "@nestjs/common";
 import { NextFunction, Request, Response } from "express";
 import generateFingerprint from "src/core/generateFingerprint";
-import { ModuleConfigs } from "../module.config";
+import { ModuleConfigs } from "../type";
 
 export function NestjsFingerprintMiddleware(
   options: ModuleConfigs
@@ -10,7 +10,8 @@ export function NestjsFingerprintMiddleware(
   class AuthMiddleware implements NestMiddleware {
     async use(req: Request, res: Response, next: NextFunction) {
       const { params } = options;
-      const hash = generateFingerprint(req, params);
+      const fp = generateFingerprint(req, params);
+      req.fp = fp;
       next();
     }
   }

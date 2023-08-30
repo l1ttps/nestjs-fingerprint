@@ -1,4 +1,4 @@
-import { Parameters } from "src/module.config";
+import { Parameters } from "src/type";
 
 /**
  * Returns an array of unique parameters by removing duplicate elements.
