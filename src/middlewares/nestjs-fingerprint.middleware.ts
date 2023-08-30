@@ -7,7 +7,7 @@ export function NestjsFingerprintMiddleware(
   options: ModuleConfigs
 ): Type<NestMiddleware> {
   @Injectable()
-  class AuthMiddleware implements NestMiddleware {
+  class Middleware implements NestMiddleware {
     async use(req: Request, res: Response, next: NextFunction) {
       const {
         params,
@@ -24,5 +24,5 @@ export function NestjsFingerprintMiddleware(
       next();
     }
   }
-  return mixin(AuthMiddleware);
+  return mixin(Middleware);
 }
