@@ -44,6 +44,9 @@ export interface UserAgent {
 
 export interface IFingerprint extends AcceptHeader, UserAgent, IpAddress {
   id: string;
+  headers: AcceptHeader;
+  userAgent: UserAgent;
+  ipAddress: IpAddress;
 }
 
 export const DEFAULT_COOKIE_NAME = "fp";
