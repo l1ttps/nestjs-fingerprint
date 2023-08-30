@@ -3,7 +3,7 @@ export interface ModuleConfigs {
 }
 
 export const defaultModuleConfigs: ModuleConfigs = {
-  params: ["geoIp", "headers", "userAgent"],
+  params: ["ipAddress", "headers", "userAgent"],
 };
 
-export type Parameters = "headers" | "userAgent" | "geoIp";
+export type Parameters = "headers" | "userAgent" | "ipAddress";
