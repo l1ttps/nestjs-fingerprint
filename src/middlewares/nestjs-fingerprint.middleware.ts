@@ -15,10 +15,14 @@ export function NestjsFingerprintMiddleware(
       } = options;
       const fp = generateFingerprint(req, params);
       req.fp = fp;
-      res.cookie(name || DEFAULT_COOKIE_NAME, fp.id, {
-        httpOnly,
-        domain,
-      });
+
+      const cookieName = name || DEFAULT_COOKIE_NAME;
+      if (!req.cookies[cookieName]) {
+        res.cookie(cookieName, fp.id, {
+          httpOnly,
+          domain,
+        });
+      }
       next();
     }
   }
