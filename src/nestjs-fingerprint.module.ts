@@ -20,10 +20,9 @@ export class NestjsFingerprintModule implements NestModule {
   }
 
   configure(consumer: MiddlewareConsumer) {
+    consumer.apply(cookieParser()).forRoutes("*");
     consumer
       .apply(NestjsFingerprintMiddleware(NestjsFingerprintModule.configs))
       .forRoutes("*");
-
-    consumer.apply(cookieParser()).forRoutes("*");
   }
 }
