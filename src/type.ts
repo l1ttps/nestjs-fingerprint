@@ -1,5 +1,3 @@
-import { Request } from "express";
-
 export interface ModuleConfigs {
   params?: Parameters[];
 }
@@ -35,8 +33,6 @@ export interface UserAgent {
   };
 }
 
-export interface FingerPrint extends AcceptHeader, UserAgent, IpAddress {
+export interface IFingerprint extends AcceptHeader, UserAgent, IpAddress {
   id: string;
 }
-
-export interface RequestFingerPrint extends Request, FingerPrint {}

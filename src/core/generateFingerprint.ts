@@ -3,7 +3,7 @@ import { x64 } from "murmurhash3js";
 import uniqueParams from "src/helpers/uniqueParams";
 import {
   AcceptHeader,
-  FingerPrint,
+  IFingerprint,
   IpAddress,
   Parameters,
   UserAgent,
@@ -19,7 +19,7 @@ import * as ua from "useragent";
 export default function generateFingerprint(
   req: Request,
   params: Parameters[]
-): FingerPrint {
+): IFingerprint {
   params = uniqueParams(params);
   const object = params.reduce((ojb, param) => {
     ojb[param] = paramHandler[param](req);
@@ -29,7 +29,7 @@ export default function generateFingerprint(
   return {
     id,
     ...object,
-  } as FingerPrint;
+  } as IFingerprint;
 }
 
 const paramHandler = {
