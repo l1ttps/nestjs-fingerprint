@@ -44,6 +44,7 @@ const paramHandler = {
     return {
       accept: headers["accept"],
       language: headers["accept-language"],
+      encoding: headers["accept-encoding"],
     };
   },
   /**
