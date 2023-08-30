@@ -15,7 +15,7 @@ export class NestjsFingerprintModule implements NestModule {
     this.configs = configs;
     return {
       global: true,
-      module: NestjsFingerprintModule,],
+      module: NestjsFingerprintModule,
     };
   }
 
