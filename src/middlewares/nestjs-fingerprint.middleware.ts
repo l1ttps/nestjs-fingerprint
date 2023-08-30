@@ -5,7 +5,6 @@ export function NestjsFingerprintMiddleware(options): Type<NestMiddleware> {
   @Injectable()
   class AuthMiddleware implements NestMiddleware {
     async use(req: Request, res: Response, next: NextFunction) {
-      console.log(options);
       next();
     }
   }

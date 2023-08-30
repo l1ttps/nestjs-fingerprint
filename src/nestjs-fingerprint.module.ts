@@ -13,9 +13,7 @@ export class NestjsFingerprintModule implements NestModule {
   static async forRoot(
     configs: ModuleConfigs = defaultModuleConfigs
   ): Promise<DynamicModule> {
-    if (!!configs) {
-      this.configs = configs;
-    }
+    this.configs = configs;
     return {
       global: true,
       module: NestjsFingerprintModule,

@@ -1,11 +1,9 @@
 export interface ModuleConfigs {
-  headers?: boolean;
-  userAgent?: boolean;
-  geoIp?: boolean;
+  params?: Parameters[];
 }
 
 export const defaultModuleConfigs: ModuleConfigs = {
-  headers: true,
-  userAgent: true,
-  geoIp: true,
+  params: ["geoIp", "headers", "userAgent"],
 };
+
+export type Parameters = "headers" | "userAgent" | "geoIp";
