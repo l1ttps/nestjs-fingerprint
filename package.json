@@ -1,6 +1,6 @@
 {
   "name": "nestjs-fingerprint",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "description": "A fingerprint recognition library from http request for nestjs",
   "main": "dist/index.js",
   "author": "l1ttps",
