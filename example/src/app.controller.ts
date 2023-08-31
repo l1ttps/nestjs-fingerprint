@@ -1,5 +1,4 @@
-import { Controller, Get, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Get } from '@nestjs/common';
 import { Fingerprint, IFingerprint, RealIp } from 'nestjs-fingerprint';
 @Controller()
 export class AppController {
@@ -9,9 +8,7 @@ export class AppController {
   }
 
   @Get('my-ip-address')
-  getMyIpAddress(@RealIp() ipAddress: string, @Req() req: Request) {
-    console.log(req.socket.remoteAddress);
-    const { headers } = req;
-    return { headers };
+  getMyIpAddress(@RealIp() ipAddress: string): string {
+    return ipAddress;
   }
 }
