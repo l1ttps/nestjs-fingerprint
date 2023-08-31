@@ -2,6 +2,7 @@ import { DynamicModule, MiddlewareConsumer, NestModule } from "@nestjs/common";
 import * as cookieParser from "cookie-parser";
 import { NestjsFingerprintMiddleware } from "./middlewares/nestjs-fingerprint.middleware";
 import { ModuleConfigs, defaultModuleConfigs } from "./type";
+
 export class NestjsFingerprintModule implements NestModule {
   private static configs: ModuleConfigs;
   /**

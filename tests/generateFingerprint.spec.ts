@@ -1,4 +1,4 @@
-import generateFingerprint from "../core/generateFingerprint";
+import generateFingerprint from "../src/core/generateFingerprint";
 const req = require("./req.json");
 describe("generateFingerprint ", () => {
   test("id", () => {

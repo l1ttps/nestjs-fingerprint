@@ -2,12 +2,15 @@
     <img src="https://github.com/l1ttps/nestjs-fingerprint/blob/main/docs/banner.png?raw=true" alt="Nestjs Fingerprint"/>
 </p>
 
-[![NPM](https://img.shields.io/npm/v/nest-fingerprint.svg)](https://www.npmjs.com/package/nest-fingerprint) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/nestjs-fingerprint.svg)](https://www.npmjs.com/package/nestjs-fingerprint)
+[![NPM](https://img.shields.io/npm/dm/nestjs-fingerprint.svg)](https://www.npmjs.com/package/nestjs-fingerprint)
+
+**Server-side fingerprinting library for framework NestJs**
 
 ## Features
 - Generate fingerprint for each browser or device
 - Function decorator support
-- Set cookie
+- Auto set cookie
 
 ## Installation
 
@@ -21,7 +24,7 @@ yarn add nestjs-fingerprint
 
 ## Usage
 app.module.ts
-```
+```typescript
 import { Module } from '@nestjs/common';
 import { NestjsFingerprintModule } from 'nestjs-fingerprint';
 import { AppController } from './app.controller';
@@ -32,8 +35,8 @@ import { AppService } from './app.service';
     NestjsFingerprintModule.forRoot({
       params: ['headers', 'userAgent', 'ipAddress'],
       cookieOptions: {
-        isSetCookie: true,
-        httpOnly: true,
+        name: 'your_cookie_name', // optional
+        httpOnly: true, // optional
       },
     }),
   ],
@@ -45,22 +48,28 @@ export class AppModule {}
 ```
 
 app.controller.ts
-```
+```typescript
 import { Controller, Get } from '@nestjs/common';
-import { Fingerprint, IFingerprint } from 'nestjs-fingerprint';
+import { Fingerprint, IFingerprint, RealIp } from 'nestjs-fingerprint';
 
 @Controller()
 export class AppController {
+
   @Get()
   getFingerprint(@Fingerprint() fp: IFingerprint): IFingerprint {
-    return fp
+    return fp;
+  }
+
+  @Get('my-ip-address')
+  getMyIpAddress(@RealIp() ipAddress: string): string {
+    return ipAddress;
   }
 }
 
 ```
 
 Fingerprint example: 
-```
+```json
 {
   "id": "79c0678d8672fafb932a97a1368d7bf3",
   "headers": {
