@@ -9,14 +9,15 @@ export function NestjsFingerprintMiddleware(
   @Injectable()
   class Middleware implements NestMiddleware {
     async use(req: Request, res: Response, next: NextFunction) {
-      const {
-        params,
-        cookieOptions: { httpOnly, name, domain },
-      } = options;
+      const { params } = options;
+      const { name, httpOnly, domain } = options.cookieOptions || {};
+
       const fp = generateFingerprint(req, params);
+
       req.fp = fp;
 
       const cookieName = name || DEFAULT_COOKIE_NAME;
+
       if (!req.cookies[cookieName]) {
         res.cookie(cookieName, fp.id, {
           httpOnly,
