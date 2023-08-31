@@ -1,6 +1,5 @@
 import { Request } from "express";
 import { x64 } from "murmurhash3js";
-import uniqueParams from "src/helpers/uniqueParams";
 import {
   AcceptHeader,
   IFingerprint,
@@ -9,6 +8,8 @@ import {
   UserAgent,
 } from "src/type";
 import * as ua from "useragent";
+import uniqueParams from "../helpers/uniqueParams";
+
 /**
  * Generate a fingerprint for the given request and parameters.
  *

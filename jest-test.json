@@ -5,7 +5,7 @@
     "ts",
     "d.ts"
   ],
-  "rootDir": "../",
+  "rootDir": "./",
   "testEnvironment": "node",
   "testRegex": ".spec.ts$",
   "transform": {
