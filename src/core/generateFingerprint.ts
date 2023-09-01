@@ -1,5 +1,6 @@
 import { Request } from "express";
 import { x64 } from "murmurhash3js";
+import * as requestIp from "request-ip";
 import {
   AcceptHeader,
   IFingerprint,
@@ -55,12 +56,8 @@ const paramHandler = {
    * @return {IpAddress} The IP address value.
    */
   ipAddress: (req: Request): IpAddress => {
-    const ip =
-      (req.headers["x-forwarded-for"] || "").split(",").pop() ||
-      req.connection?.remoteAddress ||
-      req.socket?.remoteAddress ||
-      req.connection?.socket?.remoteAddress ||
-      req.ip;
+    const ip = requestIp.getClientIp(req);
+    console.log(ip);
     return {
       value: ip,
     };
