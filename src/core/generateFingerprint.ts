@@ -23,6 +23,9 @@ export default function generateFingerprint(
   params: Parameters[]
 ): IFingerprint {
   params = uniqueParams(params);
+  if (params.length === 0) {
+    params = ["ipAddress"];
+  }
   const object = params.reduce((ojb, param) => {
     ojb[param] = paramHandler[param](req);
     return ojb;
@@ -57,7 +60,6 @@ const paramHandler = {
    */
   ipAddress: (req: Request): IpAddress => {
     const ip = requestIp.getClientIp(req);
-    console.log(ip);
     return {
       value: ip,
     };

@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "example"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions":{
     "removeComments": false,
     "declaration": true,
