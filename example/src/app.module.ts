@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     NestjsFingerprintModule.forRoot({
+      params: ['headers', 'userAgent', 'ipAddress'],
       cookieOptions: {
         httpOnly: true,
       },
