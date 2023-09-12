@@ -18,7 +18,8 @@ export function NestjsFingerprintMiddleware(
 
       const cookieName = name || DEFAULT_COOKIE_NAME;
 
-      if (!req.cookies[cookieName]) {
+      const requestCookie = req.cookies[cookieName];
+      if (!requestCookie || requestCookie !== fp.id) {
         res.cookie(cookieName, fp.id, {
           httpOnly,
           domain,

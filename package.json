@@ -1,6 +1,6 @@
 {
   "name": "nestjs-fingerprint",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Server-side fingerprinting library for framework NestJs",
   "main": "dist/index.js",
   "author": "l1ttps",
