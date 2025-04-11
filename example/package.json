@@ -21,7 +21,7 @@
     "sync": "npm link nestjs-fingerprint && npm i"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.0",
+    "@nestjs/common": "^11.0.16",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "reflect-metadata": "^0.1.13",
